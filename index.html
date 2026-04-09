@@ -1,40 +1,438 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pilates Studio | Bienestar</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilates Studio | Clases de pilates y bienestar</title>
+  <meta
+    name="description"
+    content="Landing page de un estudio de pilates y bienestar. Proyecto de práctica en HTML y CSS con diseño responsive, estructura profesional y llamada a la acción."
+  />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f8fafc;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #111827;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #374151;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #dbeafe, #e0e7ff);
+      padding: 110px 20px 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      line-height: 1.15;
+      color: #111827;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #374151;
+      margin-bottom: 28px;
+      max-width: 580px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: #2563eb;
+      border: 1px solid #bfdbfe;
+    }
+
+    .btn-secondary:hover {
+      background: #eff6ff;
+      transform: translateY(-2px);
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 460px;
+      border-radius: 18px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+      display: block;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.1rem;
+      margin-bottom: 18px;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 45px;
+      color: #4b5563;
+      font-size: 1.05rem;
+    }
+
+    .about-box {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 35px;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    .about-box p {
+      color: #374151;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    .benefits {
+      background: #ffffff;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      padding: 28px 22px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .card p {
+      color: #4b5563;
+      font-size: 0.98rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      padding: 28px 22px;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .service-card p {
+      color: #4b5563;
+    }
+
+    .cta {
+      background: #111827;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 2.2rem;
+      margin-bottom: 14px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 26px;
+      color: #d1d5db;
+      font-size: 1.05rem;
+    }
+
+    .footer {
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      padding: 28px 20px;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .cards,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 80px 20px 70px;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-content {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .about-box {
+        padding: 25px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="hero">
-    <h1>Pilates & Bienestar</h1>
-    <p>Mejora tu cuerpo, postura y energía con clases personalizadas</p>
-    <a href="#" class="btn">Reservar clase</a>
+  <nav class="navbar">
+    <div class="container nav-content">
+      <div class="logo">Pilates Studio</div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicio">Servicio</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#clases">Clases</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Pilates y bienestar para mejorar postura, movilidad y energía</h1>
+        <p>
+          Clases diseñadas para fortalecer el cuerpo, reducir el estrés y
+          ayudarte a construir una rutina de movimiento más consciente y saludable.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contacto" class="btn btn-primary">Reservar clase</a>
+          <a href="#servicio" class="btn btn-secondary">Ver más</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80"
+          alt="Clase de pilates y bienestar"
+        />
+      </div>
+    </div>
   </header>
 
-  <section class="about">
-    <h2>Sobre el servicio</h2>
-    <p>
-      Clases de pilates enfocadas en mejorar la postura, fortalecer el cuerpo
-      y reducir el estrés a través del movimiento consciente.
-    </p>
-  </section>
+  <section id="servicio">
+    <div class="container">
+      <h2 class="section-title">Sobre el servicio</h2>
+      <p class="section-subtitle">
+        Un espacio enfocado en bienestar físico y equilibrio corporal a través de
+        clases guiadas, trabajo postural y movimiento consciente.
+      </p>
 
-  <section class="benefits">
-    <h2>Beneficios</h2>
-    <div class="cards">
-      <div class="card">Mejora de postura</div>
-      <div class="card">Reducción del estrés</div>
-      <div class="card">Mayor flexibilidad</div>
+      <div class="about-box">
+        <p>
+          Este proyecto representa la landing page de un estudio de pilates.
+          Su objetivo es comunicar de forma clara el servicio, destacar beneficios
+          y dirigir al usuario hacia una acción principal: reservar una clase o solicitar información.
+        </p>
+      </div>
     </div>
   </section>
 
-  <section class="cta">
-    <h2>Empieza hoy</h2>
-    <a href="#" class="btn">Contactar</a>
+  <section class="benefits" id="beneficios">
+    <div class="container">
+      <h2 class="section-title">Beneficios</h2>
+      <p class="section-subtitle">
+        El pilates puede ayudarte a mejorar la calidad del movimiento y a desarrollar una rutina más saludable.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Mejora de postura</h3>
+          <p>Trabajo orientado a una mejor alineación corporal y mayor control postural.</p>
+        </div>
+
+        <div class="card">
+          <h3>Reducción del estrés</h3>
+          <p>Sesiones que combinan movimiento y respiración para promover bienestar físico y mental.</p>
+        </div>
+
+        <div class="card">
+          <h3>Mayor flexibilidad</h3>
+          <p>Ejercicios diseñados para mejorar movilidad, estabilidad y rango de movimiento.</p>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <section id="clases">
+    <div class="container">
+      <h2 class="section-title">Tipos de clases</h2>
+      <p class="section-subtitle">
+        Ejemplo de organización de servicios dentro de una landing profesional.
+      </p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Clase inicial</h3>
+          <p>Sesión orientada a personas que comienzan y quieren conocer las bases del pilates.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Clase intermedia</h3>
+          <p>Trabajo enfocado en mejorar fuerza, control corporal y técnica progresiva.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Sesión personalizada</h3>
+          <p>Formato individual para adaptar ejercicios según necesidades y objetivos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contacto">
+    <div class="container">
+      <h2>Empieza hoy</h2>
+      <p>
+        Una landing bien estructurada debe terminar con una llamada a la acción clara.
+        En este caso, el objetivo es invitar al usuario a reservar una clase o solicitar información.
+      </p>
+      <a href="#" class="btn btn-primary">Contactar</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2026 Pilates Studio | Proyecto de práctica en HTML y CSS
+  </footer>
 
 </body>
 </html>
